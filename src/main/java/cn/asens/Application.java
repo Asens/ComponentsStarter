@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
@@ -21,37 +22,10 @@ import java.util.concurrent.TimeUnit;
  * create 2019-01-17 12:04
  **/
 @SpringBootApplication
-@RestController
-public class Application implements CommandLineRunner {
-
-    public static Logger logger = LoggerFactory.getLogger(Application.class);
+public class Application{
 
     public static void main(String[] args) throws Exception {
         SpringApplication.run(Application.class, args);
     }
 
-    @RequestMapping("/")
-    public Object index(){
-        return "success";
-    }
-
-    @Autowired
-    private KafkaTemplate<String, String> template;
-
-    private final CountDownLatch latch = new CountDownLatch(3);
-
-    @Override
-    public void run(String... args) throws Exception {
-        this.template.send("myTopic", "foo1");
-        this.template.send("myTopic", "foo2");
-        this.template.send("myTopic", "foo3");
-        latch.await(60, TimeUnit.SECONDS);
-        logger.info("All received");
-    }
-
-    @KafkaListener(topics = "myTopic")
-    public void listen(ConsumerRecord<?, ?> cr) throws Exception {
-        logger.info(cr.toString());
-        latch.countDown();
-    }
 }
