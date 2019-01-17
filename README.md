@@ -1,4 +1,4 @@
-#Components Starter
+##Components Starter
 how components uses
 
 a branch for a component
