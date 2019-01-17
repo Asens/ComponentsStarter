@@ -1,6 +1,4 @@
-##Components Starter
-how components uses
+##kafka
 
-a branch for a component
+https://spring.io/projects/spring-kafka#learn
 
-kafka has done
