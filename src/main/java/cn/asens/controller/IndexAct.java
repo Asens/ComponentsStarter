@@ -1,5 +1,6 @@
 package cn.asens.controller;
 
+import cn.asens.dao.UserDao;
 import cn.asens.entity.User;
 import cn.asens.mng.UserMng;
 import org.apache.logging.log4j.LogManager;
@@ -25,7 +26,7 @@ public class IndexAct {
     public String index(ModelMap model) {
         for (int i = 0; i < 10; i++) {
             User user = new User();
-            user.setUsername("cc");
+            user.setName("a"+i);
             userMng.save(user);
         }
         return "success";

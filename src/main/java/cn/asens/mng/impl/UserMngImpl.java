@@ -1,7 +1,6 @@
 package cn.asens.mng.impl;
 
 import cn.asens.dao.UserDao;
-import cn.asens.dao.UserRepository;
 import cn.asens.entity.User;
 import cn.asens.mng.UserMng;
 import org.springframework.stereotype.Service;
@@ -18,21 +17,21 @@ import java.util.List;
 public class UserMngImpl implements UserMng {
 
     @Resource
-    private UserRepository userRepository;
+    private UserDao userDao;
 
     @Override
     public User findByName(String name) {
-       return userRepository.findByUsername(name);
+       return userDao.findByUsername(name);
     }
 
     @Override
     public void save(User user) {
-        userRepository.insert(user);
+        userDao.insert(user);
     }
 
     @Override
     public List<User> getList() {
-        return userRepository.selectAll();
+        return userDao.selectAll();
     }
 
 }

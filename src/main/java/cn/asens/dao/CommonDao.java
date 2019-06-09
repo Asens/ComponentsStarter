@@ -17,9 +17,45 @@
 
 package cn.asens.dao;
 
-
 import cn.asens.entity.User;
-import org.springframework.stereotype.Repository;
 
-public interface UserRepository extends CommonRepository<User, Long> {
+import java.util.List;
+
+public interface CommonDao<T, P> {
+    
+    /**
+     * Create table if not exist.
+     */
+    void createTableIfNotExists();
+    
+    /**
+     * Drop table.
+     */
+    void dropTable();
+    
+    /**
+     * Truncate table.
+     */
+    void truncateTable();
+    
+    /**
+     * insert one entity.
+     * @param entity entity
+     * @return count or primary key
+     */
+    Long insert(T entity);
+    
+    /**
+     * Do delete.
+     * @param key key
+     */
+    void delete(P key);
+    
+    /**
+     * select all.
+     * @return list of entity
+     */
+    List<T> selectAll();
+
+    User findByUsername(String name);
 }
