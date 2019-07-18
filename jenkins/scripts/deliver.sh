@@ -1,1 +1,1 @@
-mkdir /home/aa
+echo "aasdfaf"
