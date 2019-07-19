@@ -19,6 +19,6 @@ public class Application {
 
     @RequestMapping("/")
     public Object index(){
-        return "success12235";
+        return "success122354";
     }
 }
