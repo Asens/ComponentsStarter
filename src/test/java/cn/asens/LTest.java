@@ -7,17 +7,19 @@ public class LTest {
     @Test
     public void testSayHello() throws InterruptedException {
         int success = 0;
-        int total = 10;
-        int between = 50;
-        String address = "https://www.baidu.com";
+        int total = 10000;
+        int between = 500;
+        String address = "http://localhost";
+        long start = System.currentTimeMillis();
 
-        for (int i = 0; i < total; i++) {
+        for (int i = 1; i < total; i++) {
             String result = HttpUtil.get(address);
             if(result!=null && !result.equals("success")){
                 success++;
             }
             Thread.sleep(between);
-            System.out.println("success/total:"+success+"/"+total);
+            System.out.println(((System.currentTimeMillis()-start)/1000.0)+"s   " +
+                    "success/run:"+success+"/"+i);
         }
 
         System.out.println("================================");
