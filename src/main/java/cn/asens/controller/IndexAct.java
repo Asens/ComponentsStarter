@@ -24,7 +24,7 @@ public class IndexAct {
 
     @RequestMapping("/")
     public String index(ModelMap model) {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 50; i++) {
             User user = new User();
             user.setName("a"+i);
             userMng.save(user);
