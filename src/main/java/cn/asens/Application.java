@@ -17,8 +17,4 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
-    @RequestMapping("/")
-    public Object index(){
-        return "success";
-    }
 }

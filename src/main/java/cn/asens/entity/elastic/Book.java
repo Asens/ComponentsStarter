@@ -2,13 +2,25 @@ package cn.asens.entity.elastic;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
 
-@Document(indexName = "test",type = "book")
+@Document(indexName = "book")
 public class Book {
     @Id
     private String id;
+
+    @Field(type = FieldType.Text)
     private String name;
+
+    @Field(type = FieldType.Text)
     private String content;
+
+    @Field(type = FieldType.Keyword)
+    private String type;
+
+    @Field(type = FieldType.Keyword)
+    private String keyName;
 
     public String getId() {
         return id;
@@ -32,5 +44,21 @@ public class Book {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getKeyName() {
+        return keyName;
+    }
+
+    public void setKeyName(String keyName) {
+        this.keyName = keyName;
     }
 }
