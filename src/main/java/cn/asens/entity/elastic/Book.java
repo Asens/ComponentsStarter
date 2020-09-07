@@ -5,13 +5,16 @@ import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
-@Document(indexName = "book")
+@Document(indexName = "item")
 public class Book {
     @Id
     private String id;
 
     @Field(type = FieldType.Text)
     private String name;
+
+    @Field(type = FieldType.Text)
+    private String nameRealPinyin;
 
     @Field(type = FieldType.Text)
     private String content;
@@ -60,5 +63,13 @@ public class Book {
 
     public void setKeyName(String keyName) {
         this.keyName = keyName;
+    }
+
+    public String getNameRealPinyin() {
+        return nameRealPinyin;
+    }
+
+    public void setNameRealPinyin(String nameRealPinyin) {
+        this.nameRealPinyin = nameRealPinyin;
     }
 }

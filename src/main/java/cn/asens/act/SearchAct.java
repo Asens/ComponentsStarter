@@ -2,6 +2,7 @@ package cn.asens.act;
 
 import cn.asens.entity.elastic.Book;
 import cn.asens.repository.BookSearchRepository;
+import net.sourceforge.pinyin4j.PinyinHelper;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
@@ -73,6 +74,7 @@ public class SearchAct {
     @GetMapping("/search")
     public Object search(String name){
         NativeSearchQuery searchQuery = new NativeSearchQueryBuilder()
+                //.withQuery(QueryBuilders.matchPhraseQuery())
                 .withQuery(QueryBuilders.boolQuery()
                 .should(QueryBuilders.queryStringQuery("name:(\""+name+"\")"))
                 //.should(QueryBuilders.queryStringQuery("content:(\""+name+"\")"))
