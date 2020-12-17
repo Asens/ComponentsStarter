@@ -12,6 +12,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.PostConstruct;
+
 /**
  * Created by Asens on 2017/7/13
  */
@@ -24,6 +26,11 @@ public class SampleController {
 
     @Autowired
     private UserDao userDao;
+
+    @PostConstruct
+    public void init(){
+
+    }
 
     @RequestMapping("/")
     String home(ModelMap model) {

@@ -28,5 +28,7 @@ public class UserDaoImpl extends BaseDaoImpl implements CustomUserDao {
     public User findByaaId() {
         return (User)getSession().createQuery("select u from User u where u.id=1")
                 .uniqueResult();
+//        return (User)getSession().createSQLQuery("select * from NOTE_TEST.\"m_user\" where \"id\"=1")
+//                .uniqueResult();
     }
 }
