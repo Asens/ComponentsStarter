@@ -71,7 +71,23 @@
             <version>1.0.25</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.dm</groupId>
+            <artifactId>dmjdbc</artifactId>
+            <version>1.8</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/lib/DmJdbcDriver18.jar
+            </systemPath>
+        </dependency>
 
+        <dependency>
+            <groupId>com.dm.dialect</groupId>
+            <artifactId>hibernate53</artifactId>
+            <version>5.3</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/lib/DmDialect-for-hibernate5.3.jar
+            </systemPath>
+        </dependency>
 
 
         <dependency>
