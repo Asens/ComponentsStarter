@@ -7,4 +7,8 @@ import cn.asens.entity.User;
  */
 public interface CustomUserDao {
     User findByaaId();
+
+    void executeSchema();
+
+    void update(User user);
 }

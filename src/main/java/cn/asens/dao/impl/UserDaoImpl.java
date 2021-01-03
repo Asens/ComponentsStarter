@@ -31,4 +31,14 @@ public class UserDaoImpl extends BaseDaoImpl implements CustomUserDao {
 //        return (User)getSession().createSQLQuery("select * from NOTE_TEST.\"m_user\" where \"id\"=1")
 //                .uniqueResult();
     }
+
+    @Override
+    public void executeSchema() {
+        //getSession().createSQLQuery("SET SCHEMA note_test");
+    }
+
+    @Override
+    public void update(User user) {
+        getSession().update(user);
+    }
 }
